@@ -25,9 +25,17 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Staging') {
             steps {
-                echo "Развёртывание приложения..."
+                echo "Развёртывание приложения на STAGING..."
+                sh "./deploy staging"
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo "Развёртывание приложения на PRODUCTION..."
+                sh "./deploy production"
             }
         }
     }
